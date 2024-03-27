@@ -1,6 +1,7 @@
 import plotly.graph_objects as go
 
-from wagtail.core import blocks
+from wagtail.blocks import StreamBlock, CharBlock, StructBlock, ChoiceBlock, IntegerBlock, ListBlock
+
 
 from ..config import (
     DEFAULT_BAR_TABLE_OPTIONS,
@@ -293,11 +294,11 @@ class BubblePlotBlock(BasePlotBlock):
     """
     Base bubble plot block
     """
-    zaxis_title = blocks.CharBlock(required=False)
-    marker_sizemin = blocks.IntegerBlock(default=10, min_value=1, max_value=50)
-    max_marker_size = blocks.IntegerBlock(default=100, min_value=1, max_value=200)
+    zaxis_title = CharBlock(required=False)
+    marker_sizemin = IntegerBlock(default=10, min_value=1, max_value=50)
+    max_marker_size = IntegerBlock(default=100, min_value=1, max_value=200)
 
-    plot_tables = blocks.ListBlock(BubblePlotDataBlock())
+    plot_tables = ListBlock(BubblePlotDataBlock())
 
     def build_data(self, value):
         """
