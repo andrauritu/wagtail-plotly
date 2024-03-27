@@ -8,9 +8,9 @@ from wagtail.contrib.table_block.blocks import (
     TableBlock,
     TableInput,
 )
-from wagtail.core import blocks
-from wagtail.core.telepath import register
-from wagtail.core.widget_adapters import WidgetAdapter
+from wagtail.blocks import StreamBlock, CharBlock, StructBlock, ChoiceBlock
+from wagtail.telepath import register
+from wagtail.widget_adapters import WidgetAdapter
 
 
 from ..config import (
@@ -74,11 +74,11 @@ class PlotDataBlock(TableBlock):
         return render_to_string(template, new_context)
 
 
-class BubblePlotDataBlock(blocks.StructBlock):
+class BubblePlotDataBlock(StructBlock):
     """
     Bubble plot data block
     """
-    group_name = blocks.CharBlock(help_text='Name of the bubble group')
+    group_name = CharBlock(help_text='Name of the bubble group')
 
     plot_data = PlotDataBlock(
         table_options=DEFAULT_BUBBLE_TABLE_OPTIONS,
