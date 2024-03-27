@@ -1,10 +1,10 @@
 import json
 import plotly.graph_objects as go
-
+#lallala
 from django.template.loader import render_to_string
 from django.utils.safestring import mark_safe
 
-from wagtail.blocks import StreamBlock, CharBlock
+from wagtail.blocks import StreamBlock, CharBlock, StructBlock, ChoiceBlock
 from wagtail_json_widget.blocks import JSONBlock
 
 from ..config import (
@@ -22,12 +22,12 @@ from ..utils import (
 )
 
 
-class BasePlotBlock(blocks.StructBlock):
+class BasePlotBlock(StructBlock):
 
-    title = blocks.CharBlock(required=False)
-    xaxis_title = blocks.CharBlock(required=False)
-    yaxis_title = blocks.CharBlock(required=False)
-    graph_layout = blocks.ChoiceBlock(required=False, choices=get_layout_choices)
+    title = CharBlock(required=False)
+    xaxis_title = CharBlock(required=False)
+    yaxis_title = CharBlock(required=False)
+    graph_layout = ChoiceBlock(required=False, choices=get_layout_choices)
 
     def get_rows(self, plot_data):
         """
@@ -119,7 +119,7 @@ class BasePlotBlock(blocks.StructBlock):
         icon = 'table'
 
 
-class CustomPlotMixin(blocks.StructBlock):
+class CustomPlotMixin(StructBlock):
  
     custom = JSONBlock(required=False)
 
