@@ -10,7 +10,7 @@ from ..config import (
     DEFAULT_LINE_TABLE_OPTIONS,
     DEFAULT_PIE_TABLE_OPTIONS,
     DEFAULT_SCATTER_TABLE_OPTIONS,
-)
+) 
 from .table import (
     BubblePlotDataBlock,
     PlotDataBlock,
