@@ -86,3 +86,5 @@ class BubblePlotDataBlock(StructBlock):
             'Bubble plot data with Name, X, Y and Z values.'
         ),
     )
+
+
